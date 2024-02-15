@@ -7,26 +7,35 @@ class TestHttpsdemoqacom():
   def setup_method(self, method):
     self.driver = webdriver.Firefox()
     self.vars = {}
-  
+
   def teardown_method(self, method):
     self.driver.quit()
   
   def test_httpsdemoqacom(self):
+    # open main page
     self.driver.get("https://demoqa.com/")
+    # full size window
     self.driver.set_window_size(1936, 1066)
+    # find needed tab
     self.driver.find_element(By.CSS_SELECTOR, ".card:nth-child(2) svg").click()
     self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(2) .header-wrapper").click()
     self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(2) .header-wrapper").click()
     self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(1) .header-wrapper").click()
+    # enter username
     self.driver.find_element(By.ID, "item-0").click()
     self.driver.find_element(By.ID, "userName").click()
     self.driver.find_element(By.ID, "userName").send_keys("Hello")
+    # enter email
     self.driver.find_element(By.ID, "userEmail").click()
     self.driver.find_element(By.ID, "userEmail").send_keys("test@gmail.com")
+    # enter adress
     self.driver.find_element(By.ID, "currentAddress").click()
     self.driver.find_element(By.ID, "currentAddress").send_keys("hetmana st. 65/96")
+    # enter second adress
     self.driver.find_element(By.ID, "permanentAddress").click()
     self.driver.find_element(By.ID, "permanentAddress").send_keys("Privet!")
+    # submit changes
     self.driver.find_element(By.ID, "submit").click()
+    # close browser page
     self.driver.close()
   
