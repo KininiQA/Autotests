@@ -12,48 +12,60 @@ class TestHttpsdemoqacom():
     self.driver.quit()
   
   def test_httpsdemoqacom(self):
-    self.open_main_page()
+    self.open_main_page(MainPage="https://demoqa.com/")
     self.Full_size_window()
     self.Find_needed_option()
-    self.Enter_username()
-    self.Enter_email()
-    self.Enter_adress()
-    self.Enter_second_address()
+    self.Enter_username(username="Hello")
+    self.Enter_email(Email="test@gmail.com")
+    self.Enter_adress(Adress="hetmana st. 65/96")
+    self.Enter_second_address(SecondAdress="Privet!")
     self.Click_Submit()
     self.Close_browser_page()
 
-  def Close_browser_page(self):
-    self.driver.close()
-
-  def Click_Submit(self):
-    self.driver.find_element(By.ID, "submit").click()
-
-  def Enter_second_address(self):
-    self.driver.find_element(By.ID, "permanentAddress").click()
-    self.driver.find_element(By.ID, "permanentAddress").send_keys("Privet!")
-
-  def Enter_adress(self):
-    self.driver.find_element(By.ID, "currentAddress").click()
-    self.driver.find_element(By.ID, "currentAddress").send_keys("hetmana st. 65/96")
-
-  def Enter_email(self):
-    self.driver.find_element(By.ID, "userEmail").click()
-    self.driver.find_element(By.ID, "userEmail").send_keys("test@gmail.com")
-
-  def Enter_username(self):
-    self.driver.find_element(By.ID, "item-0").click()
-    self.driver.find_element(By.ID, "userName").click()
-    self.driver.find_element(By.ID, "userName").send_keys("Hello")
-
-  def Find_needed_option(self):
-    self.driver.find_element(By.CSS_SELECTOR, ".card:nth-child(2) svg").click()
-    self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(2) .header-wrapper").click()
-    self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(2) .header-wrapper").click()
-    self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(1) .header-wrapper").click()
+  def open_main_page(self, MainPage):
+    self.driver.get(MainPage)
 
   def Full_size_window(self):
     self.driver.set_window_size(1936, 1066)
 
-  def open_main_page(self):
-    self.driver.get("https://demoqa.com/")
-  
+  def Find_needed_option(self):
+      self.driver.find_element(By.CSS_SELECTOR, ".card:nth-child(2) svg").click()
+      self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(2) .header-wrapper").click()
+      self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(2) .header-wrapper").click()
+      self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(1) .header-wrapper").click()
+
+  def Enter_username(self, username):
+    self.driver.find_element(By.ID, "item-0").click()
+    self.driver.find_element(By.ID, "userName").click()
+    self.driver.find_element(By.ID, "userName").send_keys(username)
+
+  def Enter_email(self, Email):
+    self.driver.find_element(By.ID, "userEmail").click()
+    self.driver.find_element(By.ID, "userEmail").send_keys(Email)
+
+  def Enter_adress(self, Adress):
+    self.driver.find_element(By.ID, "currentAddress").click()
+    self.driver.find_element(By.ID, "currentAddress").send_keys(Adress)
+
+  def Enter_second_address(self, SecondAdress):
+    self.driver.find_element(By.ID, "permanentAddress").click()
+    self.driver.find_element(By.ID, "permanentAddress").send_keys(SecondAdress)
+
+  def Click_Submit(self):
+    self.driver.find_element(By.ID, "submit").click()
+
+  def Close_browser_page(self):
+    self.driver.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
