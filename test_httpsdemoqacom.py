@@ -11,7 +11,7 @@ class TestHttpsdemoqacom():
   def teardown_method(self, method):
     self.driver.quit()
   
-  def test_httpsdemoqacom(self):
+  def test_1_case_httpsdemoqacom(self):
     self.open_main_page(MainPage="https://demoqa.com/")
     self.Full_size_window()
     self.Find_needed_option()
@@ -22,6 +22,16 @@ class TestHttpsdemoqacom():
     self.Click_Submit()
     self.Close_browser_page()
 
+  def test_2_case_httpsdemoqacom(self):
+    self.open_main_page(MainPage="https://demoqa.com/")
+    self.Full_size_window()
+    self.Find_needed_option()
+    self.Enter_username(username="Hello,World!")
+    self.Enter_email(Email="testik@gmail.com")
+    self.Enter_adress(Adress="Vadima Hetmana st. 65/96")
+    self.Enter_second_address(SecondAdress="Pobedu avenue 36/50")
+    self.Click_Submit()
+    self.Close_browser_page()
   def open_main_page(self, MainPage):
     self.driver.get(MainPage)
 
