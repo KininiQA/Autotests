@@ -66,16 +66,3 @@ class TestHttpsdemoqacom():
 
   def Close_browser_page(self):
     self.driver.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
