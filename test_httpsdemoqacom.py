@@ -2,7 +2,7 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-
+from name_of_user import name
 class TestHttpsdemoqacom():
   def setup_method(self, method):
     self.driver = webdriver.Firefox()
@@ -15,7 +15,7 @@ class TestHttpsdemoqacom():
     self.open_main_page(MainPage="https://demoqa.com/")
     self.Full_size_window()
     self.Find_needed_option()
-    self.Enter_username(username="Hello")
+    self.Enter_username(name(username="Hello"))
     self.Enter_email(Email="test@gmail.com")
     self.Enter_adress(Adress="hetmana st. 65/96")
     self.Enter_second_address(SecondAdress="Privet!")
@@ -26,7 +26,7 @@ class TestHttpsdemoqacom():
     self.open_main_page(MainPage="https://demoqa.com/")
     self.Full_size_window()
     self.Find_needed_option()
-    self.Enter_username(username="Hello,World!")
+    self.Enter_username(name(username="Hello,World!"))
     self.Enter_email(Email="testik@gmail.com")
     self.Enter_adress(Adress="Vadima Hetmana st. 65/96")
     self.Enter_second_address(SecondAdress="Pobedu avenue 36/50")
@@ -44,10 +44,10 @@ class TestHttpsdemoqacom():
       self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(2) .header-wrapper").click()
       self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(1) .header-wrapper").click()
 
-  def Enter_username(self, username):
+  def Enter_username(self, name):
     self.driver.find_element(By.ID, "item-0").click()
     self.driver.find_element(By.ID, "userName").click()
-    self.driver.find_element(By.ID, "userName").send_keys(username)
+    self.driver.find_element(By.ID, "userName").send_keys(name.username)
 
   def Enter_email(self, Email):
     self.driver.find_element(By.ID, "userEmail").click()
