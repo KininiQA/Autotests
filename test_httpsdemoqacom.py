@@ -2,67 +2,70 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from name_of_user import name
-class TestHttpsdemoqacom():
-  def setup_method(self, method):
-    self.driver = webdriver.Firefox()
-    self.vars = {}
+from name_of_user import Name
 
-  def teardown_method(self, method):
-    self.driver.quit()
-  
-  def test_1_case_httpsdemoqacom(self):
-    self.open_main_page(MainPage="https://demoqa.com/")
-    self.Full_size_window()
-    self.Find_needed_option()
-    self.Enter_username(name(username="Hello"))
-    self.Enter_email(Email="test@gmail.com")
-    self.Enter_adress(Adress="hetmana st. 65/96")
-    self.Enter_second_address(SecondAdress="Privet!")
-    self.Click_Submit()
-    self.Close_browser_page()
 
-  def test_2_case_httpsdemoqacom(self):
-    self.open_main_page(MainPage="https://demoqa.com/")
-    self.Full_size_window()
-    self.Find_needed_option()
-    self.Enter_username(name(username="Hello,World!"))
-    self.Enter_email(Email="testik@gmail.com")
-    self.Enter_adress(Adress="Vadima Hetmana st. 65/96")
-    self.Enter_second_address(SecondAdress="Pobedu avenue 36/50")
-    self.Click_Submit()
-    self.Close_browser_page()
-  def open_main_page(self, MainPage):
-    self.driver.get(MainPage)
+class TestHttpsdemoqacom:
+    def setup_method(self):
+        self.driver = webdriver.Firefox()
+        self.vars = {}
 
-  def Full_size_window(self):
-    self.driver.set_window_size(1936, 1066)
+    def teardown_method(self):
+        self.driver.quit()
 
-  def Find_needed_option(self):
-      self.driver.find_element(By.CSS_SELECTOR, ".card:nth-child(2) svg").click()
-      self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(2) .header-wrapper").click()
-      self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(2) .header-wrapper").click()
-      self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(1) .header-wrapper").click()
+    def test_1_case_httpsdemoqacom(self):
+        self.open_main_page(MainPage="https://demoqa.com/")
+        self.Full_size_window()
+        self.Find_needed_option()
+        self.Enter_username(Name(username="Hello"))
+        self.Enter_email(Email="test@gmail.com")
+        self.Enter_adress(Adress="hetmana st. 65/96")
+        self.Enter_second_address(SecondAdress="Privet!")
+        self.Click_Submit()
+        self.Close_browser_page()
 
-  def Enter_username(self, name):
-    self.driver.find_element(By.ID, "item-0").click()
-    self.driver.find_element(By.ID, "userName").click()
-    self.driver.find_element(By.ID, "userName").send_keys(name.username)
+    def test_2_case_httpsdemoqacom(self):
+        self.open_main_page(MainPage="https://demoqa.com/")
+        self.Full_size_window()
+        self.Find_needed_option()
+        self.Enter_username(Name(username="Hello,World!"))
+        self.Enter_email(Email="testik@gmail.com")
+        self.Enter_adress(Adress="Vadima Hetmana st. 65/96")
+        self.Enter_second_address(SecondAdress="Pobedu avenue 36/50")
+        self.Click_Submit()
+        self.Close_browser_page()
 
-  def Enter_email(self, Email):
-    self.driver.find_element(By.ID, "userEmail").click()
-    self.driver.find_element(By.ID, "userEmail").send_keys(Email)
+    def open_main_page(self, MainPage):
+        self.driver.get(MainPage)
 
-  def Enter_adress(self, Adress):
-    self.driver.find_element(By.ID, "currentAddress").click()
-    self.driver.find_element(By.ID, "currentAddress").send_keys(Adress)
+    def Full_size_window(self):
+        self.driver.set_window_size(1936, 1066)
 
-  def Enter_second_address(self, SecondAdress):
-    self.driver.find_element(By.ID, "permanentAddress").click()
-    self.driver.find_element(By.ID, "permanentAddress").send_keys(SecondAdress)
+    def Find_needed_option(self):
+        self.driver.find_element(By.CSS_SELECTOR, ".card:nth-child(2) svg").click()
+        self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(2) .header-wrapper").click()
+        self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(2) .header-wrapper").click()
+        self.driver.find_element(By.CSS_SELECTOR, ".element-group:nth-child(1) .header-wrapper").click()
 
-  def Click_Submit(self):
-    self.driver.find_element(By.ID, "submit").click()
+    def Enter_username(self, Name):
+        self.driver.find_element(By.ID, "item-0").click()
+        self.driver.find_element(By.ID, "userName").click()
+        self.driver.find_element(By.ID, "userName").send_keys(Name.username)
 
-  def Close_browser_page(self):
-    self.driver.close()
+    def Enter_email(self, Email):
+        self.driver.find_element(By.ID, "userEmail").click()
+        self.driver.find_element(By.ID, "userEmail").send_keys(Email)
+
+    def Enter_adress(self, Adress):
+        self.driver.find_element(By.ID, "currentAddress").click()
+        self.driver.find_element(By.ID, "currentAddress").send_keys(Adress)
+
+    def Enter_second_address(self, SecondAdress):
+        self.driver.find_element(By.ID, "permanentAddress").click()
+        self.driver.find_element(By.ID, "permanentAddress").send_keys(SecondAdress)
+
+    def Click_Submit(self):
+        self.driver.find_element(By.ID, "submit").click()
+
+    def Close_browser_page(self):
+        self.driver.close()
